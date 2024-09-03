@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+
+    <header class="text-center bg-primary text-white p-4">
+        <h1>Login</h1>
+    </header>
+
+    <section class="container text-center mt-4">
+        <form class="mx-auto" id="loginForm" onsubmit="loginUser(); return false;">
+            <h2>Login</h2>
+            <div id="errorMessage" style="color: red;"></div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+    
+            <input type="submit" value="Login">
+        </form>
+        <button class="btn btn-primary mr-2" onclick="redirectToHomepage()">Go to Homepage</button>
+        <button class="btn btn-success" onclick="redirectToRegister()">Go to Registration</button>
+    </section>
+
+    <footer class="text-center bg-dark text-white p-2 mt-auto w-100">
+        &copy; 2023 Stroke and Diabetes Prediction
+    </footer>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function redirectToHomepage() {
+            window.location.href = "homepage.html";
+        }
+
+        function redirectToRegister() {
+            window.location.href = "register.html"; 
+        }
+    </script>
+
+    <script>
+        function loginUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData();
+
+            formData.append("username", username);
+            formData.append("password", password);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Successful response
+                        var errorMessageElement = document.getElementById("errorMessage");
+                        errorMessageElement.textContent = xhr.responseText;
+
+                        if (xhr.responseText === "Login successful!") {
+                            window.location.href = "Diabetes.html";
+                        }
+                    } else {
+                        console.error("Request failed with status:", xhr.status);
+                    }
+                }
+            };
+
+            xhr.open("POST", "login.php", true);
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>

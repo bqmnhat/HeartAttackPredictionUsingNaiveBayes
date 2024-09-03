@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="{{url_for('static', filename='htmx.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+      <section class="wrapper">
+        <div id="banner">
+        <img class="pic" src="{{url_for('static', filename='DiabetesBanner.png')}}" alt="">
+        </div>
+        <div class="detailwrap">
+          <div class="detailstyle">
+            <div class="upperwrap">
+              <h1 class="title">WILL YOU HAVE A HEART ATTACK AND DIABETES???</h1>
+            </div>
+            <div class="underwrap">
+              <p class="description">AI will predict whether you will have a heart attack and diabetes or not</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div id="content">
+      <div class="box">
+        <form method="POST" id="form">
+          <div class="formcontainer">
+            <label class="norm" for="age"> Age: </label>
+            <input type="number" id="age" name="age" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="gender"> Gender: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="gender" value="1" id="male" required>
+              <label class="radl">Male</label>
+              <input type="radio" class="rad" name="gender" value="0" id="female" style="margin-left: 3.9vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">Female</label>
+              <br> 
+            </div>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="ht"> Hypertension: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="ht" value="1" id="ht1" required>
+              <label class="radl">Yes </label>
+              <input type="radio" class="rad" name="ht" value="0" id="ht0" style="margin-left: 5.2vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">No </label>
+              <br> 
+            </div>
+          </div>
+          <div class="formcontainer"> 
+            <label class="norm" for="hd" style="font-size: 0.9rem;"> Current Heart Diseases: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="hd" value="1" required>
+              <label class="radl">Yes</label>
+              <input type="radio" class="rad" name="hd" value="0" style="margin-left: 5.2vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">No</label>
+              <br> 
+            </div>
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="height"> Height(in meters): </label>
+            <input type="number" step="0.00001" id="height" name="height" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="weight"> Weight(in kilograms): </label>
+            <input type="number" step="0.00001" id="weight" name="weight" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="smoke"> Do you smoke: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="smoke" value="0" required>
+              <label class="radl">Never</label>
+              <input type="radio" class="rad" name="smoke" value="1">
+              <label class="radl">Used to</label>
+              <input type="radio" class="rad" name="smoke" value="2" style="margin-left: 6.3vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">Still smoke</label>
+            </div>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="alcohol"> Do you drink: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="alcohol" value="0" required>
+              <label class="radl">Never</label>
+              <input type="radio" class="rad" name="alcohol" value="1">
+              <label class="radl">Used to</label>
+              <input type="radio" class="rad" name="alcohol" value="2" style="margin-left: 6.3vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">Sometimes</label>
+              <input type="radio" class="rad" name="alcohol" value="3">
+              <label class="radl">Often</label>
+            </div>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="phy"> Physical activity: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="phy" value="0" required>
+              <label class="radl">Never</label>
+              <input type="radio" class="rad" name="phy" value="1">
+              <label class="radl">Sometimes</label>
+              <input type="radio" class="rad" name="phy" value="2">
+              <label class="radl">Often</label>
+            </div>
+          </div>
+          <div class="formcontainer"> 
+            <label class="norm" for="phd"> Previous Heart Diseases: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="phd" value="1"  required>
+              <label class="radl">Yes</label>
+              <input type="radio" class="rad" name="phd" value="0" style="margin-left: 5.2vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">No</label>
+              <br> 
+            </div>
+            <br>
+          </div>
+          <div class="formcontainer"> 
+            <label class="norm" for="sh"> Family stroke history: </label>
+            <div class="radiocon">
+              <input type="radio" class="rad" name="sh" value="1"  required>
+              <label class="radl">Yes</label>
+              <input type="radio" class="rad" name="sh" value="0" style="margin-left: 5.2vh !important;"> <!-- custom margin to fit-->
+              <label class="radl">No</label>
+              <br> 
+            </div>
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="diet"> Rate your dietary habits: </label>
+            <input id="dietrange" type="range"  name="diet" min="0" max="6" value="3" step="1" class="slider">
+            <p class="rdisplay" id="dietdisplay"></p>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="stress"> Stress: </label>
+            <input id="stressrange" type="range"  name="stress" min="0" max="9" value="4" step="1" class="slider">
+            <p class="rdisplay" id="stressdisplay"></p>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="bpthu"> Blood pressure systolic: </label>
+            <input type="number" id="bpthu" name="bpthu" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="bptruong"> Blood pressure diastolic: </label>
+            <input type="number" id="bptruong" name="bptruong" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="hdl"> HDL Cholesterol: </label>
+            <input type="number" id="hdl" name="hdl" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="ldl"> LDL Cholesterol: </label>
+            <input type="number" id="ldl" name="ldl" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="sleep"> Sleep hours: </label>
+            <input type="number" id="sleep" name="sleep" class="nonbtn" min="0" max="24" required> 
+            <br>
+          </div>
+          <div class="formcontainer">
+            <label class="norm" for="hr"> Heart rate: </label>
+            <input type="number" id="hr" name="hr" class="nonbtn" required> 
+            <br>
+          </div>
+          <div class="button">
+            <button hx-post="/prediction" class="btn" hx-target="#predtext" hx-swap="innerHTML">Predict</button>
+            <br>
+          </div>
+        </form>
+        <div class="predd">
+          <h2 id="predtext"></h2>
+        </div>
+      </div>
+    </div>
+    <canvas id="userChart" width="400" height="200"></canvas>
+    <footer>
+    </footer>
+    <script src="{{url_for('static', filename='sliderr.js')}}"></script>
+</body>
+<!-- Add this script at the end of your body to handle the chart -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('form');
+      const predictButton = document.querySelector('.button button');
+
+      predictButton.addEventListener('click', function () {
+          // Fetch user input values
+          const age = document.getElementById('age').value;
+          const gender = document.querySelector('input[name="gender"]:checked').value;
+          const ht = document.querySelector('input[name="ht"]:checked').value;
+          const hd = document.querySelector('input[name="hd"]:checked').value;
+          const height = document.getElementById('height').value;
+          const weight = document.getElementById('weight').value;
+          const smoke = document.querySelector('input[name="smoke"]:checked').value;
+          const alcohol = document.querySelector('input[name="alcohol"]:checked').value;
+          const phy = document.querySelector('input[name="phy"]:checked').value;
+          const phd = document.querySelector('input[name="phd"]:checked').value;
+          const sh = document.querySelector('input[name="sh"]:checked').value;
+          // const diet = document.querySelector('diet').value;
+          // const stress = document.getElementById('stress').value;
+          const bpthu = document.getElementById('bpthu').value;
+          const bptruong = document.getElementById('bptruong').value;
+          const hdl = document.getElementById('hdl').value;
+          const ldl = document.getElementById('ldl').value;
+          const sleep = document.getElementById('sleep').value;
+          const hr = document.getElementById('hr').value;
+          // Add more variables as needed
+
+          // Update the chart with user input
+          // updateChart(age, gender, ht, hd, height, weight, smoke, alcohol, phy, phd, sh, diet, stress, bpthu, bptruong, hdl, ldl, sleep, hr); // Pass other variables as needed|
+          updateChart(age, gender, ht, hd, height, weight, smoke, alcohol, phy, phd, sh, bpthu, bptruong, hdl, ldl, sleep, hr); 
+      });
+
+      function updateChart(age, gender, ht, hd, height, weight, smoke, alcohol, phy, phd, sh, bpthu, bptruong, hdl, ldl, sleep, hr) {
+          // Fetch the canvas element
+          const ctx = document.getElementById('userChart').getContext('2d');
+
+          // Replace this with your actual chart data logic
+          const chartData = {
+              labels: ['Age', 'Gender', 'Hypertension', 'Current Heart Disease', 'Height', 'Weight', 'Smoking Status', 'Drink', 'Physical activity', 'Prev Heart Dis', 'Fam His', 'bpthu', 'bptruong', 'HDL Chol', 'LDL Chol', 'Sleep hours', 'Heart Rate'],
+              datasets: [{
+                  label: 'User Input',
+                  data: [age, gender, ht, hd, height, weight, smoke, alcohol, phy, phd, sh, bpthu, bptruong, hdl, ldl, sleep, hr],
+                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  borderWidth: 1
+              }]
+          };
+
+          new Chart(ctx, {
+              type: 'bar',
+              data: chartData,
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+      }
+  });
+</script>
+
+</html>

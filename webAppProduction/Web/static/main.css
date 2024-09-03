@@ -1,0 +1,308 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+html {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  line-height: 1.15;
+  text-size-adjust: 100%;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1560px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+#banner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  margin-left: 0; /* Reset the margin */
+  box-sizing: border-box;
+}
+
+.pic {
+  object-fit: cover;
+  border-style: none;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  width: 100%;
+  height: 100%;
+}
+
+#banner::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgb(0, 9, 19) 1%, rgba(0, 9, 19, 0) 100%);
+}
+
+.detailwrap {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px; /* Adjust padding for smaller screens */
+  z-index: 1;
+}
+
+.detailstyle {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.upperwrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+.upperwrap::before, .upperwrap::after {
+  content: "";
+  flex: 1 1 100%;
+  height: 1px;
+  background-color: rgb(0, 9, 19);
+}
+
+.box {
+  margin: auto;
+  width: 50%;
+  padding: 5vh;
+  clear: both;
+}
+
+.title {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  text-transform: uppercase;
+  font-style: italic;
+  max-width: 90%;
+  flex: 1 0 auto;
+  margin: 0;
+  padding-bottom: 0.25em;
+  font-weight: 800;
+  font-size: 3.75rem;
+  font-family: "Beaufort for LOL", serif;
+  letter-spacing: 3px;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.underwrap {
+  text-transform: uppercase;
+  align-items: center;
+  display: flex;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  -webkit-box-align: center;
+}
+
+p {
+  margin-top: 2vh;
+  margin-left: 3vh;
+  margin-bottom: 2vh;
+  width: 80%;
+  text-align: center;
+}
+
+.description {
+  display: flex;
+  flex: 5 1 auto;
+  margin: 0;
+  width: 100%;
+  padding: 15px 0px;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  text-align: center ;
+}
+form  { 
+  display: table;     
+  width: 100%;
+}
+
+.formcontainer { 
+  display: table-row;  
+  height: 5vh;
+  padding: 1vh;
+  width: 100%;
+}
+
+.norm { 
+  display: table-cell; 
+  text-align: right;
+  font-weight: bold !important;
+  width: 20%;
+}
+
+.nonbtn, .slider { 
+  display: table-cell; 
+  width: 80%;
+  height: 2.5vh;
+  margin-left: 3vh;
+}
+
+.radiocon {
+  height: 100%;
+}
+
+.radl {
+  float: left;
+  clear: none;
+  display: block;
+  padding-right: 1vh;
+  margin-left: 1vh;
+}
+
+.rad {
+  float: left;
+  clear: none;
+  margin-left: 3vh;
+}
+
+.button {
+  display: table-row;  
+  position: relative;
+  height: 5vh;
+  padding: 1vh;
+  width: 100%;
+}
+
+.btn {
+  position: absolute;
+  display: table-cell; 
+  padding: 10px 20px;
+  width: 20%;
+  min-width: 7vh;
+  height: 5vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3498db; /* Change the background color as needed */
+  color: #fff; /* Set text color to white or a suitable contrast */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9; /* Change the hover background color as needed */
+}
+
+.predd {
+  position: relative;
+  width: 100%;
+  padding-top: 3vh;
+  text-align: center;
+  font-size: 4vh;
+  margin-bottom: 10vh;
+}
+
+#predtext {
+  font-size: 2.75rem;
+}
+img {
+overflow-clip-margin: content-box;
+overflow: clip;
+}
+
+.label {
+  font-size: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.description {
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+.slider {
+  appearance: none;
+  height: 10px;
+  border-radius: 5px;  
+  outline: none;
+}
+
+.slider:hover, .nonbtn:hover, .rad:hover {
+  opacity: 0.8;
+}
+
+input[type='radio'] { 
+  transform: scale(1.5); 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #00A2E8;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .detailwrap {
+      padding: 0 20px; 
+  }
+
+  .title {
+      font-size: 2.5rem; 
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  #predtext {
+    font-size: 1.5rem;
+  }
+
+  .label {
+      font-size: 0.4rem; 
+  }
+
+  .btn {
+    padding: 8px 15px; 
+    width: 100%;
+}
+}
