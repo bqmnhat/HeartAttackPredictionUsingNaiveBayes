@@ -1,5 +1,4 @@
 # Heart Attack and Diabetes Prediction Model using Naive Bayes
-<div style="text-align: right">
 - Author:
     - Nhat Bui Quoc Minh (Leader, A.I developer, web application developer, markdown writer)
     - An Nguyen Pham Quoc (A.I developer, markdown writer)
@@ -396,4 +395,3 @@ Currently, the product has completed two functions:
 Although the doctor interface and the connection between doctors and patients are still under development, they are highly feasible due to the comprehensive data structure already in place. The product can eventually include video call support and integrate additional smart health monitoring devices to measure health indicators directly at home.
 
 Once complete, the product will serve as a foundation for an intelligent remote healthcare system integrated with artificial intelligence technology and smartwatches to measure health indicators. This will create a positive change in people's healthcare habits, encouraging more frequent participation in healthcare thanks to the product's efficiency.
-</div>
