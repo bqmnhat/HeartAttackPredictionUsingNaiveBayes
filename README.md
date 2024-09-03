@@ -2,17 +2,17 @@
  text-align: justify;
 </style>
 
-# Model chẩn đoán nhồi máu cơ tim và tiểu đường
+# Heart Attack and Diabetes Prediction Model using Naive Bayes
 
-- Tác giả:
-    - Bùi Quốc Minh Nhật
-    - Nguyễn Phạm Quốc An
-    - Choi Won Seok
-    - Dương Ngọc Thịnh
-    - Nguyễn Nhật Phi
-- Trường THPT chuyên Trần Đại Nghĩa - 12CTin  
+- Author:
+    - Nhat Bui Quoc Minh (Leader, A.I developer, web application developer, markdown writer)
+    - An Nguyen Pham Quoc (A.I developer, markdown writer)
+    - Choi Won Seok (web application developer)
+    - Thinh Duong Ngoc (web application developer)
+    - Phi Nguyen Nhat (markdown writer)
+- Tran Dai Nghia highschool for the gifted - class of 12CTin (2021 - 2024)
 
-Mục lục
+Content
 =================
 * 1 [Giới thiệu](#1-Giới-thiệu)
     * 1.1 [Hiện trạng bệnh tiểu đường](#11-Hiện-trạng-bệnh-tiểu-đường)
@@ -23,7 +23,7 @@ Mục lục
     * 2.2 [Dữ liệu thô](#22-Dữ-liệu-thô)
 * 3 [Xây dựng mô hình sản phẩm](#3-Xây-dựng-mô-hình-sản-phẩm)
     * 3.1 [Lưu đồ quá trình xây dựng](#31-Lưu-đồ-quá-trình-xây-dựng)
-    * 3.2 [Xây dựng mô hình bằng phương pháp Ontology](##32-Xây-dựng-mô-hình-bằng-phương-pháp-Ontology-modeling)
+    * 3.2 [Xây dựng mô hình](##32-Xây-dựng-mô-hình)
     * 3.3 [Huấn luyện model](#33-Huấn-luyện-model)
     * 3.4 [Trích xuất model](#34-Trích-xuất-model)
     * 3.5 [Xây dựng ứng dụng web](#35-Xây-dựng-ứng-dụng-Web)
@@ -166,9 +166,9 @@ Trong đó, 15 trường gồm:
 ### 3.1 Lưu đồ quá trình xây dựng:
 ![HeartAttackAndDiabetes.drawio](https://hackmd.io/_uploads/HJpjsI5S6.png)
 
-### 3.2 Xây dựng mô hình bằng phương pháp Ontology modeling
+### 3.2 Xây dựng mô hình
 
-Thuật ngữ "Ontology" là một tập hợp các khái niệm và phạm trù trong một chủ đề hoặc lĩnh vực thể hiện mối quan hệ giữa các thuộc tính của chúng. Trong trường hợp bài toán của chúng ta, ta sẽ xử lý dữ liệu dựa vào mối quan hệ giữa các trường dữ liệu nhằm loại bỏ các trường không ổn định hoặc tách các trường là cha của nhiều thành phần trường dữ liệu nhỏ hơn để dễ dàng huấn luyện model.
+Trong trường hợp bài toán của chúng ta, ta sẽ xử lý dữ liệu dựa vào mối quan hệ giữa các trường dữ liệu nhằm loại bỏ các trường không ổn định hoặc tách các trường là cha của nhiều thành phần trường dữ liệu nhỏ hơn để dễ dàng huấn luyện model.
 
 Ngoài ra, ta sẽ huấn luyện nhiều model khác nhau và xét tính chính xác của tất cả các model để từ đó chọn ra model mạnh nhất hoặc hướng xây dựng model phù hợp cho sản phẩm.
 
