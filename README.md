@@ -1,7 +1,3 @@
-<style>
- text-align: justify;
-</style>
-
 # Heart Attack and Diabetes Prediction Model using Naive Bayes
 
 - Author:
